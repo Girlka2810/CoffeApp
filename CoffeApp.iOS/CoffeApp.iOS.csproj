@@ -111,6 +111,15 @@
     <ImageAsset Include="Assets.xcassets\background.imageset\Background-2.jpg" />
     <ImageAsset Include="Assets.xcassets\background.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\background.imageset\backgroung.jpg" />
+    <ImageAsset Include="Assets.xcassets\LatteCup.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\LatteCup.imageset\LatteCup%401x.png" />
+    <ImageAsset Include="Assets.xcassets\LatteCup.imageset\LatteCup%402x.png" />
+    <ImageAsset Include="Assets.xcassets\LatteCup.imageset\LatteCup%403x.png" />
+    <ImageAsset Include="Assets.xcassets\LatteCup.imageset\image%403x.png" />
+    <ImageAsset Include="Assets.xcassets\CappuchinoCup.imageset\CappuchinoCup%401x.png" />
+    <ImageAsset Include="Assets.xcassets\CappuchinoCup.imageset\CappuchinoCup%402x.png" />
+    <ImageAsset Include="Assets.xcassets\CappuchinoCup.imageset\CappuchinoCup%403x.png" />
+    <ImageAsset Include="Assets.xcassets\CappuchinoCup.imageset\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -139,6 +148,8 @@
     <Folder Include="Assets.xcassets\preparation.imageset\" />
     <Folder Include="Assets.xcassets\background.imageset\" />
     <Folder Include="Resources\" />
+    <Folder Include="Assets.xcassets\LatteCup.imageset\" />
+    <Folder Include="Assets.xcassets\CappuchinoCup.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Background.jpg" />
