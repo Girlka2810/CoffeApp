@@ -16,9 +16,17 @@ namespace CoffeApp.ViewModels
         private int _index;
         public CoffeeModel CoffeeModel
         {
-            get { return _coffeeModel; }
-            set { _coffeeModel = value; NotifyPropertyChanged(nameof(CoffeeModel)); }
+            get
+            {
+                return _coffeeModel;
+            }
+            set
+            {
+                _coffeeModel = value;
+                NotifyPropertyChanged(nameof(CoffeeModel));
+            }
         }
+
        
         public AboutPageVM()
         {
@@ -33,7 +41,7 @@ namespace CoffeApp.ViewModels
 
         public void NextCoffee ()
         {
-            if (_index >= _coffeeModelList.Count-1)
+            if (_index >=  _coffeeModelList.Count-1)
             {
                 _index = 0;   
             }
@@ -44,9 +52,15 @@ namespace CoffeApp.ViewModels
 
 
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        //private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        //{
+        //   PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        // }
+
+        protected virtual void NotifyPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

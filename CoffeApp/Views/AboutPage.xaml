@@ -15,18 +15,13 @@
             HeightRequest="40">
             <Label
                 Margin="0,0,0,0"
-                FontFamily="Billabong"
+                FontFamily="ComicSans"
                 FontSize="28"
                 HorizontalTextAlignment="Center"
                 Text="Gorilla Roasters"
                 TextColor="Green" />
         </Frame>
-        <Frame
-            Margin="20,10,20,10"
-            Padding="0,0,0,0"
-            BackgroundColor="White"
-            HasShadow="True"
-            HeightRequest="150">
+        <Frame HeightRequest="150" Style="{StaticResource frameView}">
             <Grid Margin="0,0,0,0" Padding="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
@@ -46,40 +41,33 @@
                 <Label
                     Grid.Row="0"
                     Grid.Column="1"
-                    Margin="0,0,0,0"
-                    Padding="0,0,0,0"
                     FontAttributes="Bold"
                     FontSize="20"
+                    Style="{StaticResource labelCoffeeView}"
                     Text="{Binding CoffeeModel.Name}"
-                    TextColor="#24130c"
                     VerticalTextAlignment="End" />
+
                 <Label
                     Grid.Row="1"
                     Grid.Column="1"
-                    Margin="0,0,0,0"
-                    Padding="0,0,0,0"
                     FontSize="10"
                     Opacity="0.15"
+                    Style="{StaticResource labelCoffeeView}"
                     Text="{Binding CoffeeModel.Producer}"
-                    TextColor="#24130c"
                     VerticalTextAlignment="Start" />
+
                 <Label
                     Grid.Row="2"
                     Grid.Column="1"
-                    Margin="0,0,0,0"
                     FontAttributes="Bold"
                     FontSize="35"
+                    Style="{StaticResource labelCoffeeView}"
                     Text="{Binding CoffeeModel.Price}"
-                    TextColor="#24130c"
                     VerticalTextAlignment="Start" />
+
             </Grid>
         </Frame>
-        <Frame
-            Margin="20,0,20,10"
-            Padding="0,0,0,0"
-            BackgroundColor="White"
-            HasShadow="True"
-            HeightRequest="200">
+        <Frame HeightRequest="200" Style="{StaticResource frameView}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -103,11 +91,8 @@
                 <Label
                     Grid.Row="0"
                     Grid.Column="1"
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    HorizontalOptions="Start"
-                    Text="Intensity"
-                    VerticalOptions="Center" />
+                    Style="{StaticResource labelCoffeeInfoView}"
+                    Text="Intensity" />
                 <Button
                     Grid.Row="0"
                     Grid.Column="2"
@@ -129,11 +114,8 @@
                 <Label
                     Grid.Row="2"
                     Grid.Column="1"
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    HorizontalOptions="Start"
-                    Text="Intensity"
-                    VerticalOptions="Center" />
+                    Style="{StaticResource labelCoffeeInfoView}"
+                    Text="Intensity" />
                 <Button
                     Grid.Row="2"
                     Grid.Column="2"
@@ -154,10 +136,8 @@
                 <Label
                     Grid.Row="4"
                     Grid.Column="1"
-                    FontSize="18"
-                    HorizontalOptions="Start"
-                    Text="Preparation"
-                    VerticalOptions="Center" />
+                    Style="{StaticResource labelCoffeeInfoView}"
+                    Text="Preparation" />
                 <Button
                     Grid.Row="4"
                     Grid.Column="2"
@@ -178,11 +158,8 @@
                 <Label
                     Grid.Row="6"
                     Grid.Column="1"
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    HorizontalOptions="Start"
-                    Text="Size"
-                    VerticalOptions="Center" />
+                    Style="{StaticResource labelCoffeeInfoView}"
+                    Text="Size" />
                 <Button
                     Grid.Row="6"
                     Grid.Column="2"
@@ -193,13 +170,15 @@
         <Button
             BackgroundColor="#cabaa3"
             Style="{StaticResource squareButton}"
-            Text="{x:Static strings:Strings.placeYourOrderButtonText}" />
+            Text="{x:Static strings:Strings.placeYourOrderButtonText}"
+            TextColor="DarkGreen" />
         <Button
             BackgroundColor="Transparent"
-            BorderColor="#d5d5d5"
+            BorderColor="#d5d7d5"
             BorderWidth="1"
             Style="{StaticResource squareButton}"
-            Text="{x:Static strings:Strings.addToFavouriteButtonText}" />
+            Text="{x:Static strings:Strings.addToFavouriteButtonText}"
+            TextColor="Salmon" />
     </StackLayout>
 
 
