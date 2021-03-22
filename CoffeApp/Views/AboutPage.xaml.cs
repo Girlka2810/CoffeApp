@@ -15,5 +15,7 @@ namespace CoffeApp.Views
             ViewModel = new AboutPageVM();
             this.BindingContext =  ViewModel;
         }
+
+        
     }
 }

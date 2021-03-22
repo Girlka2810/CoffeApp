@@ -12,14 +12,25 @@ namespace CoffeApp.ViewModels
     {
         private CoffeeModel _coffeeModel;
         private List <CoffeeModel> _coffeeModelList;
+        private List<PreparationInfo> _preparationInfoList;
+        public List<PreparationInfo> PreparationInfoList
+        {
+            get => _preparationInfoList;
+            set
+            {
+                _preparationInfoList = value;
+                NotifyPropertyChanged(nameof(PreparationInfoList));
+            }
+        }
        public ICommand Command { get; set; }
+       public ICommand CommandNext { get; set; }
+       public ICommand CommandPrevious { get; set; }
+
         private int _index;
         public CoffeeModel CoffeeModel
         {
-            get
-            {
-                return _coffeeModel;
-            }
+            get => _coffeeModel;
+            
             set
             {
                 _coffeeModel = value;
@@ -30,16 +41,25 @@ namespace CoffeApp.ViewModels
        
         public AboutPageVM()
         {
-            _coffeeModel = new CoffeeModel() { Name = "Jungle Espresso", ImageSourse = "coffeCup.jpg", Price = "2.10$", Producer= "by UXDivers" };
+            _coffeeModel = new CoffeeModel() { Name = "Jungle Espresso", ImageSourse = "coffeCup.jpg", Price = "2.20$", Producer= "by UXDivers" };
             _coffeeModelList = new List<CoffeeModel>();
             _coffeeModelList.Add(_coffeeModel);
             _coffeeModelList.Add(new CoffeeModel() { Name = "Cappuchino", ImageSourse = "CappuchinoCup.jpg", Price = "3.10$", Producer = "by UXDivers" });
             _coffeeModelList.Add(new CoffeeModel() { Name = "Latte", ImageSourse = "LatteCup.jpg", Price = "4.75$", Producer = "by UXDivers" });
             _index = 0;
             Command = new Command(NextCoffee);
+            CommandNext = new Command(NextCoffee);
+            CommandPrevious = new Command(PreviousCoffee);
+            PreparationInfoList = new List<PreparationInfo>()
+            {
+                new PreparationInfo() {IconSourse = "intensity.png", Name = "Intensity", ButtonText = "Strong"},
+                new PreparationInfo() {IconSourse = "acidity.png", Name = "Acidity", ButtonText = "Sharp"},
+                new PreparationInfo() {IconSourse = "preparation.png", Name = "Preparation", ButtonText = "8 minutes"},
+                new PreparationInfo() {IconSourse = "size.png", Name = "Size", ButtonText = "Small"}
+            };
         }
 
-        public void NextCoffee ()
+        private void NextCoffee ()
         {
             if (_index >=  _coffeeModelList.Count-1)
             {
@@ -47,20 +67,23 @@ namespace CoffeApp.ViewModels
             }
             else
             { _index++; }
-            _coffeeModel = _coffeeModelList[_index];
+            CoffeeModel = _coffeeModelList[_index];
         }
-
-
-
-        //private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        //{
-        //   PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        // }
+        private void PreviousCoffee ()
+        {
+            if (_index >  0)
+            {
+                _index--;   
+            }
+            else
+            { _index=_coffeeModelList.Count-1; }
+            CoffeeModel = _coffeeModelList[_index];
+        }
 
         protected virtual void NotifyPropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

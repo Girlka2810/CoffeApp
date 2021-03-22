@@ -13,6 +13,7 @@
             BackgroundColor="Transparent"
             CornerRadius="0"
             HeightRequest="40">
+            
             <Label
                 Margin="0,0,0,0"
                 FontFamily="ComicSans"
@@ -22,6 +23,11 @@
                 TextColor="Green" />
         </Frame>
         <Frame HeightRequest="150" Style="{StaticResource frameView}">
+            <Frame.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Command="{Binding CommandPrevious}" > </SwipeGestureRecognizer>
+                <SwipeGestureRecognizer Direction="Right" Command="{Binding CommandNext}"></SwipeGestureRecognizer>
+            </Frame.GestureRecognizers>
+            
             <Grid Margin="0,0,0,0" Padding="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
@@ -68,105 +74,25 @@
             </Grid>
         </Frame>
         <Frame HeightRequest="200" Style="{StaticResource frameView}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition Height="1" />
-                    <RowDefinition />
-                    <RowDefinition Height="1" />
-                    <RowDefinition />
-                    <RowDefinition Height="1" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70" />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Image
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Margin="10,0,0,0"
-                    Source="intensity.ico&gt;" />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Style="{StaticResource labelCoffeeInfoView}"
-                    Text="Intensity" />
-                <Button
-                    Grid.Row="0"
-                    Grid.Column="2"
-                    Command="{Binding Command}"
-                    Style="{StaticResource roundedButton}"
-                    Text="Strong" />
-                <BoxView
-                    Grid.Row="1"
-                    Grid.ColumnSpan="3"
-                    Margin="30,0,30,0"
-                    BackgroundColor="Black"
-                    Opacity="0.05" />
-
-                <Image
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Margin="10,0,0,0"
-                    Source="acidity.jpg&gt;" />
-                <Label
-                    Grid.Row="2"
-                    Grid.Column="1"
-                    Style="{StaticResource labelCoffeeInfoView}"
-                    Text="Intensity" />
-                <Button
-                    Grid.Row="2"
-                    Grid.Column="2"
-                    Style="{StaticResource roundedButton}"
-                    Text="Sharp" />
-                <BoxView
-                    Grid.Row="3"
-                    Grid.ColumnSpan="3"
-                    Margin="30,0,30,0"
-                    BackgroundColor="Black"
-                    Opacity="0.05" />
-
-                <Image
-                    Grid.Row="4"
-                    Grid.Column="0"
-                    Margin="10,0,0,0"
-                    Source="preparation.jpg&gt;" />
-                <Label
-                    Grid.Row="4"
-                    Grid.Column="1"
-                    Style="{StaticResource labelCoffeeInfoView}"
-                    Text="Preparation" />
-                <Button
-                    Grid.Row="4"
-                    Grid.Column="2"
-                    Style="{StaticResource roundedButton}"
-                    Text="8 minutes" />
-                <BoxView
-                    Grid.Row="5"
-                    Grid.ColumnSpan="3"
-                    Margin="30,0,30,0"
-                    BackgroundColor="Black"
-                    Opacity="0.05" />
-
-                <Image
-                    Grid.Row="6"
-                    Grid.Column="0"
-                    Margin="10,0,0,0"
-                    Source="size.jpg&gt;" />
-                <Label
-                    Grid.Row="6"
-                    Grid.Column="1"
-                    Style="{StaticResource labelCoffeeInfoView}"
-                    Text="Size" />
-                <Button
-                    Grid.Row="6"
-                    Grid.Column="2"
-                    Style="{StaticResource roundedButton}"
-                    Text="Small" />
-            </Grid>
+                <CollectionView  x:Name="CollectionView" ItemsSource="{Binding PreparationInfoList }">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate >
+                            <StackLayout Orientation="Horizontal" WidthRequest="300" Spacing="50" >
+                                <Image Source="{Binding IconSourse}" Style="{StaticResource iconView}"></Image>
+                                <Label Text="{Binding Name}" WidthRequest="100" Style="{StaticResource labelCoffeeInfoView}"></Label>
+                                <Button 
+                                    Text= "{Binding ButtonText}" Style="{StaticResource roundedButton}" 
+                                    Command="{Binding Source={x:Reference CollectionView}, 
+                                    Path=BindingContext.CommandNext}">
+                                   
+                                </Button>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>  
         </Frame>
+            
+       
         <Button
             BackgroundColor="#cabaa3"
             Style="{StaticResource squareButton}"
