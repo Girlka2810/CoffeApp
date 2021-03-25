@@ -4,7 +4,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:strings="clr-namespace:CoffeApp"
-    BackgroundImageSource="background.png">
+    BackgroundImageSource="background.png"
+    
+    >
 
     <StackLayout>
         <Frame
@@ -105,6 +107,15 @@
             Style="{StaticResource squareButton}"
             Text="{x:Static strings:Strings.addToFavouriteButtonText}"
             TextColor="Salmon" />
+        <Button
+            BackgroundColor="Transparent"
+            BorderColor="#d5d7d5"
+            BorderWidth="1"
+            Style="{StaticResource squareButton}"
+            Text="{x:Static strings:Strings.openSpaceButtonText}"
+            TextColor="MediumPurple" 
+            Clicked="Button_OnClicked"
+            />
     </StackLayout>
 
 

@@ -2,12 +2,38 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CoffeApp.Views.SecondPage">
-    <ContentPage.Content>
+             x:Class="CoffeApp.Views.SecondPage"
+BackgroundImageSource="https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg"
+             
+             >
+        <ContentPage.Content>
         <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
+            <Frame Margin="0,0,0,0" Padding="0">
+                <ListView ItemsSource="{ Binding Heroes}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}">
+                                    
+                                </Label>
+                                <Label Text="{Binding Height}">
+                                    
+                                </Label>
+                                <Label Text="{Binding Gender}">
+                                    
+                                </Label>
+                            </StackLayout>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+            <Button Margin="0"
+                    Text="Recieve characters"
+                    Command="{Binding Command}">
+                
+            </Button>
         </StackLayout>
     </ContentPage.Content>
+    
+    
 </ContentPage>

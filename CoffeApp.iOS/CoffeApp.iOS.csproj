@@ -120,6 +120,10 @@
     <ImageAsset Include="Assets.xcassets\CappuchinoCup.imageset\CappuchinoCup%402x.png" />
     <ImageAsset Include="Assets.xcassets\CappuchinoCup.imageset\CappuchinoCup%403x.png" />
     <ImageAsset Include="Assets.xcassets\CappuchinoCup.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\openSpace.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\openSpace.imageset\openSpace%401x.png" />
+    <ImageAsset Include="Assets.xcassets\openSpace.imageset\openSpace%402x.png" />
+    <ImageAsset Include="Assets.xcassets\openSpace.imageset\openSpace%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -130,6 +134,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -150,6 +155,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Assets.xcassets\LatteCup.imageset\" />
     <Folder Include="Assets.xcassets\CappuchinoCup.imageset\" />
+    <Folder Include="Assets.xcassets\openSpace.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Background.jpg" />

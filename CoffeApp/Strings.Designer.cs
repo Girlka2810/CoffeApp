@@ -58,5 +58,10 @@ namespace CoffeApp {
                 return ResourceManager.GetString("placeYourOrderButtonText", resourceCulture);
             }
         }
+        internal  static  string openSpaceButtonText{
+        get {
+            return ResourceManager.GetString("openSpaceButtonText", resourceCulture);
+        }
+    }
     }
 }

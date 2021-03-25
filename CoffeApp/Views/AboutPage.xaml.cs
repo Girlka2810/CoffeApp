@@ -16,6 +16,10 @@ namespace CoffeApp.Views
             this.BindingContext =  ViewModel;
         }
 
-        
+
+        private void Button_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SecondPage());
+        }
     }
 }
