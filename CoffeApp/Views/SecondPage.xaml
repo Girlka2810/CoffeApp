@@ -9,8 +9,8 @@ BackgroundImageSource="https://starwarsblog.starwars.com/wp-content/uploads/2020
         <ContentPage.Content>
         <StackLayout>
             <Frame Margin="0,0,0,0" Padding="0">
-                <ListView ItemsSource="{ Binding Heroes}">
-                    <ListView.ItemTemplate>
+                <CollectionView ItemsSource="{ Binding Heroes}">
+                    <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="{Binding Name}">
@@ -24,8 +24,8 @@ BackgroundImageSource="https://starwarsblog.starwars.com/wp-content/uploads/2020
                                 </Label>
                             </StackLayout>
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </Frame>
             <Button Margin="0"
                     Text="Recieve characters"
